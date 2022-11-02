@@ -24,7 +24,7 @@ function Reviews() {
           <p className={s.reviewsContent}>{item.content}</p>
         </li>
       ))}
-    </ul>
+    </ul> 
   );
 }
 

@@ -24,3 +24,11 @@
     margin-top: 0;
 font-size: 20px;
 }
+
+
+.notReviews {
+    font-size: 50px;
+        color: black;
+        font-weight: 600;
+        padding-left: 30px;
+}

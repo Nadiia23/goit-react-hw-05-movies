@@ -24,13 +24,6 @@ export const getMoviesByQuery = async params => {
   return data;
 };
 
-// export const getMoviesCast= async id => { 
-//     const response = await getApi.get(`/movie/${id}/credits`);
-//     console.log(response.data);
-//     return response.data;
-// }
-
-
 export const getMoviesCast = async id => {
   const { data } = await getApi.get(`/movie/${id}/credits`);
   return data;
@@ -38,6 +31,6 @@ export const getMoviesCast = async id => {
 
 export const getMoviesReviews = async id => {
     const { data } = await getApi.get(`/movie/${id}/reviews`);
-    console.log(data);
+    // console.log(data);
   return data;
 };

@@ -8,7 +8,7 @@ const MoviesDetails = () => {
   const [movie, setMovie] = useState({});
   const { movieId } = useParams();
   const location = useLocation();
-  const backLinkHref = location.state?.from ?? "/";
+  const backLinkHref = location.state?.from || "/";
 
   useEffect(() => {
     if (!movieId) return;
@@ -48,10 +48,10 @@ const MoviesDetails = () => {
       <p className={s.descriptionWrapTitle}>Additional informathion</p>
       <ul className={s.infoList}>
         <li>
-          <NavLink to="cast" className={({ isActive }) => (isActive ? s.active : s.infoLink)}>Cast</NavLink>
+          <NavLink to="cast" state={{ from: location?.state?.from }} className={({ isActive }) => (isActive ? s.active : s.infoLink)}>Cast</NavLink>
         </li>
         <li>
-          <NavLink to="reviews" className={({ isActive }) => (isActive ? s.active : s.infoLink)}>Reviews</NavLink>
+          <NavLink to="reviews" state={{ from: location?.state?.from }} className={({ isActive }) => (isActive ? s.active : s.infoLink)}>Reviews</NavLink>
         </li>
       </ul>
       <Suspense>
