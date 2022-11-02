@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import s from './cast.module.css';
 
 
-export const Cast = () => {
+const Cast = () => {
     const [castMovie, setMovieCast] = useState();
     const { movieId } = useParams();
 

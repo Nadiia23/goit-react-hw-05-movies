@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import s from './reviews.module.css';
 
-export function Reviews() {
+function Reviews() {
   const [review, setReview] = useState();
   const { movieId } = useParams();
 

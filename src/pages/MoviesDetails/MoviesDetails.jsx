@@ -1,10 +1,10 @@
 import { getMoviesId } from 'helpers/api';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { NavLink, useParams, Outlet, useLocation } from 'react-router-dom';
 import BackLink from "components/BackLink/BackLink";
 import s from './moviesDetail.module.css';
 
-export const MoviesDetails = () => {
+const MoviesDetails = () => {
   const [movie, setMovie] = useState({});
   const { movieId } = useParams();
   const location = useLocation();
@@ -54,7 +54,11 @@ export const MoviesDetails = () => {
           <NavLink to="reviews" className={({ isActive }) => (isActive ? s.active : s.infoLink)}>Reviews</NavLink>
         </li>
       </ul>
-      <Outlet />
+      <Suspense>
+         <Outlet />
+     </Suspense>
     </div>
   );
 };
+
+export default MoviesDetails;

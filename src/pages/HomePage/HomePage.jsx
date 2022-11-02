@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import s from './homePage.module.css';
 
-export const HomePage = () => {
+const HomePage = () => {
   const [movies, setMovies] = useState(null);
 
   useEffect(() => {

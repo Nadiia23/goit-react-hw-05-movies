@@ -1,17 +1,13 @@
-import { Header } from 'components/Header/Header';
-import { HomePage } from 'pages/HomePage/HomePage';
-import { Movies } from 'pages/Movies/Movies';
-import { MoviesDetails } from 'pages/MoviesDetails/MoviesDetails';
 import { Routes, Route } from 'react-router-dom';
-import { Cast } from 'pages/Cast/Cast';
-import Reviews from 'pages/Reviews /Reviews';
-import {  Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 
-// const Homepage = lazy(() => import('pages/HomePage/HomePage'));
-// const Movies = lazy(() => import('pages/Movies/Movies'));
-// const MovieDetailsPage = lazy(() => import('pages/MoviesDetails/MoviesDetails'));
-// const Cast = lazy(() => import('pages/Cast/Cast'));
-// const Reviews = lazy(() => import('pages/Reviews /Reviews'));
+const Header = lazy(() => import('./Header/Header'));
+const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
+const Movies = lazy(() => import('../pages/Movies/Movies'));
+const MoviesDetails = lazy(() => import('../pages/MoviesDetails/MoviesDetails'));
+const Cast = lazy(() => import('../pages/Cast/Cast'));
+const Reviews = lazy(() => import('../pages/Reviews /Reviews'));
+// const Home = lazy(() => import('Pages/Home/Home'));
 
 
 export const App = () => {
@@ -19,7 +15,7 @@ export const App = () => {
   return (
     <div>
       <Header />
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense>
         <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/movies' element={<Movies />} />
