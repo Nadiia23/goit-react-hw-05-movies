@@ -1,22 +1,20 @@
 import { getMoviesId } from 'helpers/api';
 import { Suspense, useEffect, useState } from 'react';
 import { NavLink, useParams, Outlet, useLocation } from 'react-router-dom';
-import BackLink from "components/BackLink/BackLink";
+import BackLink from 'components/BackLink/BackLink';
 import s from './moviesDetail.module.css';
 
 const MoviesDetails = () => {
   const [movie, setMovie] = useState({});
   const { movieId } = useParams();
   const location = useLocation();
-  const backLinkHref = location.state?.from || "/";
+  const backLinkHref = location.state?.from || '/';
 
   useEffect(() => {
     if (!movieId) return;
     const getById = async () => {
       const data = await getMoviesId(movieId);
-
       setMovie(data);
-      // console.log(data);
     };
     getById();
   }, [movieId]);
@@ -48,15 +46,27 @@ const MoviesDetails = () => {
       <p className={s.descriptionWrapTitle}>Additional informathion</p>
       <ul className={s.infoList}>
         <li>
-          <NavLink to="cast" state={{ from: location?.state?.from }} className={({ isActive }) => (isActive ? s.active : s.infoLink)}>Cast</NavLink>
+          <NavLink
+            to="cast"
+            state={{ from: location?.state?.from }}
+            className={({ isActive }) => (isActive ? s.active : s.infoLink)}
+          >
+            Cast
+          </NavLink>
         </li>
         <li>
-          <NavLink to="reviews" state={{ from: location?.state?.from }} className={({ isActive }) => (isActive ? s.active : s.infoLink)}>Reviews</NavLink>
+          <NavLink
+            to="reviews"
+            state={{ from: location?.state?.from }}
+            className={({ isActive }) => (isActive ? s.active : s.infoLink)}
+          >
+            Reviews
+          </NavLink>
         </li>
       </ul>
       <Suspense>
-         <Outlet />
-     </Suspense>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };

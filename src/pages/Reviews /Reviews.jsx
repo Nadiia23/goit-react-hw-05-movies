@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import s from './reviews.module.css';
 
 function Reviews() {
-  const [review, setReview] = useState();
+  const [review, setReview] = useState([]);
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -17,15 +17,19 @@ function Reviews() {
   }, [movieId]);
 
   return (
+    <>
+
+      {!review.length?<p className={s.notReviews}>We don`t have any reviews for movie.</p> :
     <ul className={s.reviewsList}>
-      {review?.map(item => (
+      {review?.map(item =>  (
         <li key={item.id} className={s.reviewsListItem}>
           <p className={s.author}>Author: {item.author}</p>
           <p className={s.reviewsContent}>{item.content}</p>
         </li>
       ))}
-    </ul> 
-  );
+    </ul>}
+    </>
+  ); 
 }
 
 export default Reviews;
