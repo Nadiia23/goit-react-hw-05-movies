@@ -9,6 +9,7 @@ export function Movies() {
   const [movie, setMovie] = useState(null);
   const [query, setQuery] = useState(null);
   const [searchValue, setSearchValue] = useState('');
+  console.log(searchParams);
 
   useEffect(() => {
     if (!query) return;

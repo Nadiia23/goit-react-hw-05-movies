@@ -20,13 +20,13 @@ export const HomePage = () => {
       <ul className={s.filmList}>
         {movies?.map(movie => (
           <li key={movie.id} className={s.filmListItem}>
+            <NavLink to={`/movies/${movie.id}`} className={s.filmLink}>
             <img
               style={{ width: 200 }}
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               alt="poster"
               width="200"
             />
-            <NavLink to={`/movies/${movie.id}`} className={s.filmLink}>
               <h3 className={s.filmTitle}>{movie.original_title}</h3>
             </NavLink>
           </li>
